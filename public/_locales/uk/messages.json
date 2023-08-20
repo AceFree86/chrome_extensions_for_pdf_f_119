@@ -1,0 +1,71 @@
+{
+  "extName": {
+    "message": "Редактор PDF Форма 119 УКРПОШТИ"
+  },
+  "extTitle": {
+    "message": "Редактор PDF Форма 119"
+  },
+  "extDescription": {
+    "message": "Дане розширення дає можливість додавати текст з додаткової інформації до pdf форми 119 та багато іншого."
+  },
+  "btnExit": {
+    "message": "ВХІД"
+  },
+  "btnRegistration": {
+    "message": "РЕЄСТРАЦІЯ"
+  },
+  "btnTrack": {
+    "message": "ВІДСТЕЖИТИ"
+  },
+  "btnOffices": {
+    "message": "ВІДДІЛЕННЯ"
+  },
+  "btnDialog": {
+    "message": "Відкрити Ф. 119"
+  },
+  "textDialog": {
+    "message": "Відкриється : "
+  },
+  "text2Dialog": {
+    "message": " с."
+  },
+  "textErrorDialog": {
+    "message": "Помилка Редагування !"
+  },
+  "checkboxForm": {
+    "message": "Додати нову форму до сайта."
+  },
+  "checkboxSelectedText": {
+    "message": "Вмк. додавання текста до pdf ф.119."
+  },
+  "checkboxPdfHorizontal": {
+    "message": "Вмк. зміну ф.119 на горизонтальну."
+  },
+  "checkboxDoesNothing": {
+    "message": "Не міняти нічого у ф.119 pdf."
+  },
+  "cardSlider1Title": {
+    "message": "Як користуватися!"
+  },
+  "cardSlider1Text": {
+    "message": "Після установки розширення заходите у свій особистий кабінет https://ok.ukrposhta.ua/ відкриваєте лист з увідомленям ф.119 купіруєте з Додаткова інформація текст або інший текст в браузері й натискаєте на кнопку яка генерує pdf ф.119. Розширення все саме зробить."
+  },
+  "cardSlider2Title": {
+    "message": "Помилки!"
+  },
+  "cardSlider2Text": {
+    "message": "Якщо вискочить 'Помилка Редагування !', то це означає що Укрпошта на короткий час Вас обмежив доступ до посилання, бо Ви дуже часто відкривали одне і те саме посилання pdf."
+  },
+  "registerAccount": {
+    "message": "https://ok.ukrposhta.ua/ua/register"
+  },
+  "tracking": {
+    "message": "https://track.ukrposhta.ua/tracking_UA.html?barcode="
+  },
+  "loginAccount": {
+    "message": "https://ok.ukrposhta.ua/"
+  },
+  "uaStyle": {
+    "message": "ua"
+  }
+}

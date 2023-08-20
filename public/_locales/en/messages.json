@@ -1,0 +1,71 @@
+{
+  "extName": {
+    "message": "PDF editor Form 119 UKRPOSHTA"
+  },
+  "extTitle": {
+    "message": "PDF editor Form 119"
+  },
+  "extDescription": {
+    "message": "This extension makes it possible to add text from additional information to pdf form 119 and much more."
+  },
+  "btnExit": {
+    "message": "ENTRY"
+  },
+  "btnRegistration": {
+    "message": "REGISTRATION"
+  },
+  "btnTrack": {
+    "message": "TRACK"
+  },
+  "btnOffices": {
+    "message": "DEPARTMENT"
+  },
+  "btnDialog": {
+    "message": "Open F. 119"
+  },
+  "textDialog": {
+    "message": "It will open : "
+  },
+  "text2Dialog": {
+    "message": " s."
+  },
+  "textErrorDialog": {
+    "message": "Error Editing !"
+  },
+  "checkboxForm": {
+    "message": "Add a new form to the site."
+  },
+  "checkboxSelectedText": {
+    "message": "Off adding text to pdf f.119."
+  },
+  "checkboxPdfHorizontal": {
+    "message": "Off change of f.119 to horizontal."
+  },
+  "checkboxDoesNothing": {
+    "message": "Do not change anything in f.119 pdf"
+  },
+  "cardSlider1Title": {
+    "message": "How to use!"
+  },
+  "cardSlider1Text": {
+    "message": "After installing the extension, go to your personal account https://ok.ukrposhta.ua/, open the letter with the notification f.119, copy the text or other text from Additional info in the browser and click on the button that generates the pdf f.119. The extension will do the rest."
+  },
+  "cardSlider2Title": {
+    "message": "Errors!"
+  },
+  "cardSlider2Text": {
+    "message": "If 'Editing Error!' pops up, it means that Ukrposhta has temporarily restricted your access to the link because you opened the same pdf link very often."
+  },
+  "registerAccount": {
+    "message": "https://ok.ukrposhta.ua/en/register"
+  },
+  "tracking": {
+    "message": "https://track.ukrposhta.ua/tracking_EN.html"
+  },
+  "loginAccount": {
+    "message": "https://ok.ukrposhta.ua/en"
+  },
+  "uaStyle": {
+    "message": "en"
+  }
+}
