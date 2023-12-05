@@ -20,6 +20,15 @@ const btnStyleEn = {
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
+function countSetap() {
+  chrome.storage.local.get(["timerStart"], (result) => {
+    if (result.timerStart !== "yes") {
+      return 1000;
+    }
+   return 0;
+  });
+}
+
 const cleanupChromeStorage = async () => {
   await chrome.storage.local.remove(["ukrposhta"]);
 };
@@ -42,12 +51,22 @@ function Dialog() {
   const ref = useRef(null);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      if (count > 0) {
-        setCount(count - 1);
+    chrome.storage.local.get(["timerStart"], (result) => {
+      if (result.timerStart !== "yes") {
+        const timer = setInterval(() => {
+          if (count > 0) {
+            setCount(count - 1);
+          }
+        }, 1000);
+        return () => clearInterval(timer);
+      } else {
+        setCount(0);
+        chrome.storage.local.remove(["timerStart"]);
       }
-    }, 1000);
-    return () => clearInterval(timer);
+    });
+    return () => {
+      // Cleanup if needed
+    };
   }, [count]);
 
   useEffect(() => {
@@ -57,6 +76,7 @@ function Dialog() {
         setUrl(result.ukrposhta);
         if (typeof result.ukrposhta !== "undefined") {
           ref.current.click();
+          chrome.storage.local.remove(["timerStart"]);
         }
       });
     }
@@ -87,10 +107,13 @@ function Dialog() {
 
   async function btnClick() {
     try {
-      await sleep(1000);
+      console.log("btnClick started");
+      await sleep(countSetap());
+
       if (typeof url !== "undefined") {
         const t = await getSelectetText();
         const selected = await chrome.storage.local.get(["selectedText"]);
+
         if (
           selected.selectedText === "unchecked" ||
           typeof selected.selectedText === "undefined"
@@ -108,6 +131,7 @@ function Dialog() {
       setText("Error modifying PDF");
       cleanupChromeStorage();
     }
+    console.log("btnClick completed");
   }
 
   return (

@@ -1,23 +1,38 @@
 chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
   if (changeInfo.url && changeInfo.url !== "") {
-    if (
-      changeInfo.url.includes(
-        "ok.ukrposhta.ua/ua/lk/print/letterDomesticF119/"
-      ) ||
-      changeInfo.url.includes("ok.ukrposhta.ua/en/lk/print/letterDomesticF119/")
-    ) {
+    if (changeInfo.url.includes("ok.ukrposhta.ua/ua/lk/print/letterDomesticF119/") ||
+      changeInfo.url.includes("ok.ukrposhta.ua/en/lk/print/letterDomesticF119/")) {
       chrome.storage.local.get("doesNothing", (result) => {
-        if (
-          result.doesNothing === "unchecked" ||
-          typeof result.doesNothing === "undefined"
-        ) {
+        if (result.doesNothing === "unchecked" || typeof result.doesNothing === "undefined") {
           storeDataInLocalStorage(changeInfo.url);
           storageOpenWindows();
         }
       });
     }
+    else if (decodeURIComponent(changeInfo.url).includes("D3_повідомлення_ф119")) {
+      console.log(decodeURIComponent(changeInfo.url));
+      chrome.storage.local.get("doesNothing", (result) => {
+        if (
+          result.doesNothing === "unchecked" ||
+          typeof result.doesNothing === "undefined"
+        ) {
+          storeDataInLocalStorage(decodeURIComponent(changeInfo.url));
+          storeTimerStart("yes");
+          storageOpenWindows();
+           console.log("btnClick completed");
+        }
+      });
+    }
   }
 });
+
+async function storeTimerStart(text) {
+  try {
+    chrome.storage.local.set({ timerStart: text });
+  } catch (error) {
+    console.log("Error setting value:", error);
+  }
+}
 
 async function storeDataInLocalStorage(url) {
   try {
@@ -31,9 +46,7 @@ async function storeDataInLocalStorage(url) {
 
 async function storageOpenWindows() {
   try {
-    chrome.storage.local.set({ win: "yes" }).then(() => {
-      console.log("");
-    });
+    chrome.storage.local.set({ win: "yes" });
   } catch (error) {
     console.log("Error setting value:", error);
   }
@@ -42,7 +55,7 @@ async function storageOpenWindows() {
 async function openWindows() {
   try {
     chrome.tabs.query({ active: true }, async (tabs) => {
-      chrome.tabs.remove(tabs[0].id);
+      chrome.tabs.remove(tabs[0].id); 
       chrome.windows.getCurrent(async (win) => {
         const width = 250;
         const height = 210;
